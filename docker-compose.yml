@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: guiafoco-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: guiafoco
+      MYSQL_USER: guiafoco
+      MYSQL_PASSWORD: guiafoco123
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3307:3306"
+    volumes:
+      - guiafoco-data:/var/lib/mysql
+volumes:
+  guiafoco-data:
